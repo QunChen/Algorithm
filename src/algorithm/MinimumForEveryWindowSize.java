@@ -1,0 +1,46 @@
+package algorithm;
+
+import java.util.PriorityQueue;
+import java.util.Set;
+import java.util.TreeSet;
+
+/**
+ * Created by qun.chen on 25/5/17.
+ */
+public class MinimumForEveryWindowSize {
+
+    public static void main(String[] argv){
+        int[] data = {1,-5,3,2,4,3};
+        int[] result=findMins(data,3);
+        System.out.print(result);
+    }
+
+    public static int[] findMins(int[] data,int k){
+        if(data==null||k<=0){
+            return new int[0];
+        }
+
+        if(data.length<=k){
+            int[] result=new int[1];
+            PriorityQueue<Integer> queue=new PriorityQueue<>();
+            for(int i:data){
+                queue.add(i);
+            }
+            result[0]=queue.poll();
+            return result;
+        }
+
+        TreeSet<Integer> set = new TreeSet<>();
+        int[] result=new int[data.length-k+1];
+        for(int i=0;i<data.length;i++){
+            if(i>k-1){
+                result[i-k]=set.first();
+                set.remove(data[i-k]);
+            }
+            set.add(data[i]);
+        }
+
+        result[data.length-k]=set.first();
+        return result;
+    }
+}
