@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.tree;
 
 import dataStructures.BinaryTree.TreeNode;
 
@@ -28,6 +28,9 @@ public class PathWithSumK {
         System.out.println(pathWithSumK.findPath(n1, 8));
     }
 
+    /**
+     * use the current sum and current path
+     */
     public PathWithSumK() {
         currentPath = new Stack<>();
         currentSum = 0;
@@ -46,6 +49,19 @@ public class PathWithSumK {
         return paths;
     }
 
+    /**
+     * in order
+     * backtracking
+     * 1. calculate the current sum, add to current path
+     * 2. if equal to target, deep copy to result list, revoke step 1 for backtracking
+     * 3. if larger than sum, revoke step 1 for backtracking
+     * 4. recursively find it in the left subtree and right subtress
+     * 5. for a node, if both subtrees' sum are finished, revoke step 1 for backtracking, then return the recursion stack
+     * O(n)
+     * @param node
+     * @param sum
+     * @param paths
+     */
     public void findPathRecurssion(TreeNode<Integer> node, int sum,
                                    List<Stack<TreeNode<Integer>>> paths) {
         if (node == null) {

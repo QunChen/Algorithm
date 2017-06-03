@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.string;
 
 import java.util.*;
 
@@ -13,6 +13,13 @@ public class ReconstructItinerary {
         System.out.print(result);
     }
 
+    /**
+     * 1. crate a map from departure to a queue of arrival
+     * 2. populate it with tickets
+     * O(nlogn)
+     * @param tickets
+     * @return
+     */
     public static List<String> findItinerary(String[][] tickets) {
         Map<String,PriorityQueue<String>> maps=new HashMap<>();
         for(String[] strings:tickets){
@@ -33,6 +40,16 @@ public class ReconstructItinerary {
         return route;
     }
 
+    /**
+     * recursively built a route
+     * when the destination could be found in another departure and its own destination is not empty
+     * use the destination as next departure
+     * when no more route, add destination to top from recursion call stack
+     * O(n)
+     * @param des
+     * @param maps
+     * @param route
+     */
     public static void visit(String des,Map<String,PriorityQueue<String>> maps, List<String> route){
         while(maps.containsKey(des)&&!maps.get(des).isEmpty()){
             visit(maps.get(des).poll(),maps,route);

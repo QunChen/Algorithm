@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.data_structure;
 
 import java.util.*;
 
@@ -10,10 +10,10 @@ public class RandomizedCollection {
     public static void main(String[] argv){
 
         RandomizedCollection randomizedCollection=new RandomizedCollection();
-        System.out.println(randomizedCollection.insert(1));
+        System.out.println(randomizedCollection.insert(2));
         System.out.println(randomizedCollection.insert(1));
         System.out.println(randomizedCollection.insert(2));
-        System.out.println(randomizedCollection.insert(2));
+        System.out.println(randomizedCollection.insert(1));
         System.out.println(randomizedCollection.insert(2));
 
         System.out.println(randomizedCollection.remove(1));
@@ -33,7 +33,10 @@ public class RandomizedCollection {
 
 
 
-    /** Initialize your data structure here. */
+    /** Initialize your data structure here.
+     * use the map to find the random item
+     * use linkedlist for normal access
+     * */
     public RandomizedCollection() {
         map=new HashMap<>();
         list=new LinkedList<>();
@@ -41,7 +44,12 @@ public class RandomizedCollection {
 
     }
 
-    /** Inserts a value to the collection. Returns true if the collection did not already contain the specified element. */
+    /** Inserts a value to the collection. Returns true if the collection did not already contain the specified element.
+     *  1. add the val to list
+     *  2. add the index to set as the value for that map on the key of this value
+     *  O(1)
+     *
+     * */
     public boolean insert(int val) {
         boolean notFind=!contains(val);
         list.add(val);
@@ -56,7 +64,15 @@ public class RandomizedCollection {
         return notFind;
     }
 
-    /** Removes a value from the collection. Returns true if the collection contained the specified element. */
+    /** Removes a value from the collection. Returns true if the collection contained the specified element.
+     * 1. get the last element list
+     * 2. get the first index for the selected list
+     * 3. use the index from step 2 to populate list contains last element in the list
+     * 4. swap the value in the step 1 with step 2
+     * 5. remove the index found in step 2
+     * 6. remove key if index value is empty
+     * O(1)
+     * */
     public boolean remove(int val) {
         boolean isFind=contains(val);
         if(isFind){
@@ -71,12 +87,16 @@ public class RandomizedCollection {
             list.remove(list.size()-1);
             if(map.get(val).isEmpty()){
                 map.remove(val);
+            }else{
+                it.remove();
             }
         }
         return isFind;
     }
 
-    /** Get a random element from the collection. */
+    /** Get a random element from the collection.
+     * O(1)
+     * */
     public int getRandom() {
         Random random=new Random();
         return list.get(random.nextInt(list.size()));

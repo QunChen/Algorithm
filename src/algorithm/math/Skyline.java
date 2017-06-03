@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.math;
 
 import java.util.*;
 
@@ -16,6 +16,19 @@ public class Skyline {
 
     }
 
+    /**
+     * 1. use a list to store height for all left top and right top corner, which are a height is enable and disable
+     * the left one is minus for sorting purpose and easy to differentiate
+     * 2. sort all heights first by left than right
+     * 3. create a max heap for find the largest height
+     * 4. loop the height, for left,
+     * a. if higher than previous highest in the max heap, save it to result
+     * b. otherwise, add to max heap
+     * 5. for right, if disable the current highest, remove it from max heap, if it higher than next highest, save it to result
+     * O(nlogn)
+     * @param buildings
+     * @return
+     */
     public List<int[]> getSkyline(int[][] buildings) {
 
         List<int[]> result=new ArrayList<>();

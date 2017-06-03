@@ -21,6 +21,7 @@ public class MinimumForEveryWindowSize {
      * 2. Use a tree set to store all values, when reaching the size of k, remove the first one in the set, which is also the min one
      * 3. add new item into the tree set.
      * 4. finally set the last element in the tree set to the last result
+     * O(n)
      * @param data
      * @param k
      * @return

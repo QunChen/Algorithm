@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.list;
 
 import java.util.*;
 
@@ -32,6 +32,16 @@ public class TopKthAverage {
         }
     }
 
+    /**
+     * 1. create one map from id to a max heap of scores
+     * 2. create a map from id to average
+     * 3. add all to map in step 1
+     * 4. add result to map in step 2
+     * O(n^2)
+     * @param data
+     * @param k
+     * @return
+     */
     public static Map<Integer,Double> getTopKthAverage(List<Result> data,int k){
         if(data==null||data.isEmpty()){
             return null;
@@ -57,6 +67,13 @@ public class TopKthAverage {
         return results;
     }
 
+    /**
+     * get average of first k element in a min heap
+     * O(min(n,k))
+     * @param queue
+     * @param k
+     * @return
+     */
     private static double getAverage(PriorityQueue<Integer> queue,int k){
         double result=0;
         int total=0;

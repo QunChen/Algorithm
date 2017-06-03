@@ -1,6 +1,4 @@
-package algorithm;
-
-import dataStructures.LinkedList.DoublyListNode;
+package algorithm.data_structure;
 
 import java.util.HashMap;
 import java.util.Map;

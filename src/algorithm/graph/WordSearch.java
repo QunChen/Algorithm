@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.graph;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -19,6 +19,12 @@ public class WordSearch {
     }
 
 
+    /**
+     * loop from each cell in the board, look for word
+     * @param board
+     * @param word
+     * @return
+     */
     public boolean exist(char[][] board, String word) {
         if(word==null||word.length()==0||board==null){
             return false;
@@ -35,6 +41,25 @@ public class WordSearch {
         return false;
     }
 
+    /**
+     * base case:
+     * a. if visited, return false
+     * b. out of boundary, return false
+     * c. size is correct, return true
+     * 1. if the first character equal to cell in the board
+     * 2. add the cell to visited.
+     * 3. print route
+     * 4. recursively look for next character in 8 directions and check if one of them return true
+     * 5. backtracking, revoke step 2
+     * 6. is not satisfied step 1 , return false
+     * @param board
+     * @param row
+     * @param col
+     * @param chars
+     * @param index
+     * @param visited
+     * @return
+     */
     private boolean existRecurssion(char[][] board,int row,int col,char[] chars,int index,Set<List<Integer>> visited){
         if(row<0||col<0||row>=board.length||col>=board[0].length){
             return false;

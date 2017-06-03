@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.graph;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -15,6 +15,11 @@ public class VirusMatrix {
         virusMatrix.effection(matrix,0,0);
     }
 
+    /**
+     * BFS
+     * update cell values
+     * O(mn)
+     */
     public void effection(int[][] matrix, int startRow,int startCol){
         Queue<Integer[]> queue=new LinkedList<>();
 
@@ -27,6 +32,10 @@ public class VirusMatrix {
         }
     }
 
+    /**
+     * O(mn)
+     * @param matrix
+     */
     private void printMatrix(int[][] matrix){
         for(int i=0;i<matrix.length;i++){
             for(int j=0;j<matrix[0].length;j++){
@@ -37,6 +46,16 @@ public class VirusMatrix {
         System.out.println("--------");
     }
 
+    /**
+     * 1. from current cell, in 8 directions, find cell equals 1
+     * 2. add it to queue and set it to 2
+     * 3. prinr the current matrix
+     * no need of visited because the value in cell is updated
+     * O(mn)
+     * @param matrix
+     * @param queue
+     * @param current
+     */
     private void add(int[][] matrix, Queue<Integer[]> queue, Integer[] current){
         int row=current[0];
         int col=current[1];

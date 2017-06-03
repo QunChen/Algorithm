@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.list;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +12,19 @@ public class SummaryRanges {
         System.out.print(summaryRanges(new int[]{0,5,9}));
     }
 
+    /**
+     * 1. create a list for current range, initial with first element in the array
+     * 2. loop the array,
+     * a. if the difference between current and next is 1, add to the current list
+     * b. otherwise add to result and clear the current and initial with this unsatisfied value
+     * 3. add the last current range
+     * 4. loop to print,
+     * a. if the list size is over 1, print start to end
+     * b. otherwise, print the single value
+     * O(n)
+     * @param nums
+     * @return
+     */
     public static List<String> summaryRanges(int[] nums) {
         if(nums==null||nums.length==0){
             return new ArrayList<>();

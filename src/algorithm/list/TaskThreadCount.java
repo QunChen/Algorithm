@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.list;
 
 import java.util.*;
 
@@ -19,6 +19,9 @@ public class TaskThreadCount {
 
     }
 
+    /**
+     * compare by start time
+     */
     private static class Task implements Comparable<Task>{
         public int start;
         public int end;
@@ -34,6 +37,16 @@ public class TaskThreadCount {
         }
     }
 
+    /**
+     * 1. sort by start time
+     * 2. set value for max, processed,timeline and a list for in progress taskss
+     * 3. when not all are processed, increase timeline, if reaching a start, add it into in progress list
+     * 4. in each timeline, loop all in progress task, if reaches its end time, remove it from in progress list
+     * 5. update the max with the size of in progres  list
+     * O(tn)
+     * @param tasks
+     * @return
+     */
     public int getMaxThread(List<Task> tasks){
          Collections.sort(tasks);
          int processed=0;

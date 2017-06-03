@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.list;
 
 /**
  * Created by qun.chen on 27/5/17.
@@ -14,6 +14,16 @@ public class SwapNodesInPairs {
       }
 
 
+    /**
+     * a. if only 1 node, return
+     * b. if has 2 nodes, reverse 2 nodes and return
+     * 1. set pre, current, next and next2
+     * 2. when next is not null, pre to next, next to current, current to next 2
+     * 3. advance all
+     * O(n)
+     * @param head
+     * @return
+     */
     public ListNode swapPairs(ListNode head) {
         if(head==null){
             return null;

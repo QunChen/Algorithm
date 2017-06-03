@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.tree;
 
 import dataStructures.BinaryTree.TreeNode;
 
@@ -38,6 +38,16 @@ public class PathWithSumKPartial {
         System.out.print(sumPaths);
     }
 
+    /**
+     * backtracking
+     * in order
+     * first add each node, when reaching the left, calculate the possible sub path
+     * remove last adding to return recursion call stack
+     * O(n^3)
+     * @param node
+     * @param path
+     * @param K
+     */
     private void getAllPaths(TreeNode<Integer> node, List<TreeNode<Integer>> path, int K) {
 
         if (node == null) {
@@ -53,6 +63,13 @@ public class PathWithSumKPartial {
         path.remove(path.size()-1);
     }
 
+    /**
+     * for a path, find sub path equals to sum
+     * 1. loop from start to end each iteration extends to the end of path
+     * O(n^2)
+     * @param path
+     * @param K
+     */
     private void getSumPath(List<TreeNode<Integer>> path, int K) {
 
         for (int i = 0; i < path.size() - 1; i++) {
@@ -65,6 +82,16 @@ public class PathWithSumKPartial {
         }
     }
 
+    /**
+     * get sum of a list of treenode with start and end node
+     * if find value equals k, return the path
+     * O(n)
+     * @param path
+     * @param start
+     * @param end
+     * @param K
+     * @return
+     */
     private List<Integer> getSum(List<TreeNode<Integer>> path, int start, int end, int K) {
         int sum = 0;
         for (int i = start; i <= end; i++) {

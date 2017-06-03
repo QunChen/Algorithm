@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.math;
 
 import java.util.*;
 
@@ -40,6 +40,15 @@ public class TopKNearestPoints {
         System.out.println(findNeariest2(point3,points,3));
     }
 
+    /**
+     * 1. sort all points by distance to target
+     * 2. get first k points
+     * O(nlogn)
+     * @param target
+     * @param points
+     * @param k
+     * @return
+     */
     public static List<Point> findNeariest2(Point target,List<Point> points, int k){
         Collections.sort(points,(p1,p2)->(p1.x-target.x)*(p1.x-target.x)
                 +(p1.y-target.y)*(p1.y-target.y)-
@@ -53,6 +62,16 @@ public class TopKNearestPoints {
         return results;
     }
 
+    /**
+     * 1. create a min heap by distance to target
+     * 2. push all to queue
+     * 3. poll until k
+     * O(nlogn)
+     * @param target
+     * @param points
+     * @param k
+     * @return
+     */
     public static List<Point> findNeariest(Point target,List<Point> points, int k){
         PriorityQueue<Point> queue=new PriorityQueue<>((p1,p2)->
                 (p2.x-target.x)*(p2.x-target.x)

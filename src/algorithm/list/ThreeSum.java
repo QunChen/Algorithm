@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.list;
 
 import java.util.*;
 
@@ -13,6 +13,18 @@ public class ThreeSum {
         System.out.print(threeSum.threeSum(sums));
     }
 
+    /**
+     * 1. sort the array
+     * 2. if the current value is same with previous, no need to calculate
+     * 3. use the current value and find the sum is target - current
+     * 4. set 2 pointers, one at next, one at end,
+     * a. if sum of values at pointers equal to required, add to result, and then move to next different value from both start and end
+     * b. if less than target, move start forward start
+     * c. if larger than target, move end backward
+     * O(n^2)
+     * @param nums
+     * @return
+     */
     public List<List<Integer>> threeSum(int[] nums) {
         Arrays.sort(nums);
         List<List<Integer>> result=new ArrayList<>();

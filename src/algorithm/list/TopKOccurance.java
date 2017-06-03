@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.list;
 
 import java.util.*;
 
@@ -14,6 +14,17 @@ public class TopKOccurance {
         System.out.print(findTopKOccurance(book,2));
     }
 
+    /**
+     * 1. create a map from string to number of occurrence
+     * 2. create a max heap by value in the map in step 1
+     * 3. add all strings to map
+     * 4. add all strings to heap
+     * 5. poll until k
+     * O(nlogn)
+     * @param book
+     * @param K
+     * @return
+     */
     public static List<String> findTopKOccurance(List<String> book, int K){
 
         if(K<=0||book==null||book.size()==0){
