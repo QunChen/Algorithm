@@ -30,9 +30,18 @@ public class ReverseLinkedList {
             return head;
         }
 
-        return reverseRecursion(head,null);
+        return reverseRecursion2(head,null);
     }
 
+    /**
+     * end case: if next is null, which is reaching the last node, point to prev
+     * then the call stack will reverse all node direction
+     * make
+     * O(n)
+     * @param current
+     * @param prev
+     * @return
+     */
     public static ListNode reverseRecursion(ListNode current,ListNode prev){
 
         if(current.next==null){
@@ -45,7 +54,13 @@ public class ReverseLinkedList {
         return head;
     }
 
-    public ListNode reverseRecursion2(ListNode node,ListNode parent) {
+    /**
+     * first make node point to the prev, then more to next using recursion
+     * @param node
+     * @param parent
+     * @return
+     */
+    public static ListNode reverseRecursion2(ListNode node,ListNode parent) {
         ListNode next=node.next;
         node.next=parent;
 
@@ -57,6 +72,13 @@ public class ReverseLinkedList {
         return reverseRecursion(next,node);
     }
 
+    /**
+     * store the next node, store next.next, and reverse pointer,
+     * update current and next
+     * O(n)
+     * @param head
+     * @return
+     */
     public static ListNode reverseIteration(ListNode head){
             if(head==null){
                 return null;

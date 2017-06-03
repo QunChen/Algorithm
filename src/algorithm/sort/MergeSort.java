@@ -20,6 +20,15 @@ public class MergeSort {
         mergeSort(origin, 0, origin.size()-1);
     }
 
+    /**
+     * 1. split the list half, and recursively sort each half. when the head over tail
+     * return.
+     * 2. merge the result from 2 smallest split list
+     * O(nlgn)
+     * @param origin
+     * @param low
+     * @param high
+     */
     public static void mergeSort(List<Integer> origin, int low, int high) {
         if (low < high) {
             int mid = (low + high) / 2;

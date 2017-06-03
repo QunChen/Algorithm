@@ -4,6 +4,10 @@ import dataStructures.LinkedList.ListNode;
 
 /**
  * Created by qun.chen on 13/5/17.
+ * 1. find the size of each linked list
+ * 2. move the long one to the same size of short one
+ * 3. start check each node
+ * O(n)
  */
 public class IntersectionOf2LinkedList {
 

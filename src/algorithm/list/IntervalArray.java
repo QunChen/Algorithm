@@ -2,13 +2,17 @@ package algorithm.list;
 
 /**
  * Created by qun.chen on 13/5/17.
+ * 1. have 2 pointers, one in head, one in tail
+ * 2. find 1 unsatisfied from head, 1 unsatisfied from tail, then swap
+ * 3. finish when head over tail
+ * O(n)
  */
 public class IntervalArray {
 
     public static void main(String[] argv){
-        int[] a= {1,-1,-1,1,1,-1,1,-1};
-        //sort(a);
-        wiggleSort(a);
+        int[] a= {-1,-1,-1,1,1,-1,1,1};
+        sort(a);
+        //wiggleSort(a);
         System.out.print(a);
     }
 

@@ -7,6 +7,9 @@ import java.util.Set;
 
 /**
  * Created by qun.chen on 21/5/17.
+ * use a Map to map the original node to copy node
+ * then reconstruct using the map
+ * O(n)
  */
 
 
@@ -22,8 +25,6 @@ public class CopyListWithRandomPointer {
 
     public RandomListNode copyRandomList(RandomListNode head) {
 
-        Set<Integer> set=new HashSet<Integer>();
-        set.iterator();
 
         if(head==null){
             return null;

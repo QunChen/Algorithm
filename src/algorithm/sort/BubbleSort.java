@@ -15,6 +15,12 @@ public class BubbleSort {
         System.out.print(list);
     }
 
+    /**
+     * from start to end, if larger than the next, swap, the the largest one will
+     * be put at the tail
+     * O(n^2)
+     * @param origin
+     */
     public static void bubbleSort(List<Integer> origin){
         boolean isSwapped=true;
         int n=origin.size()-1;

@@ -34,6 +34,10 @@ public class LRUCache {
         }
     }
 
+    /**
+     * store the capacity, head and tail for add and remove, and a map from value to node
+     *
+     */
     private int capacity;
     private int count;
     private CacheNode head;
@@ -52,6 +56,11 @@ public class LRUCache {
         tail.next=null;
     }
 
+    /**
+     * Doubly linked list remove
+     * O(1)
+     * @param node
+     */
     public void remove(CacheNode node){
         if(node.prev!=null){
             node.prev.next=node.next;
@@ -61,6 +70,11 @@ public class LRUCache {
         }
     }
 
+    /**
+     * add a node the the head
+     * O(1)
+     * @param node
+     */
     public void addToHead(CacheNode node){
             CacheNode first=head.next;
             first.prev=node;
@@ -74,6 +88,12 @@ public class LRUCache {
         addToHead(node);
     }
 
+    /**
+     * after get, more to head
+     * O(1)
+     * @param key
+     * @return
+     */
     public int get(int key){
         if(map.containsKey(key)){
             CacheNode node=map.get(key);
@@ -85,6 +105,14 @@ public class LRUCache {
         }
     }
 
+    /**
+     * if the key exist, move to head,
+     * otherwise if it is not full, add to map
+     * if it is going to be full, remove the tail because it is least accessed
+     * O(1)
+     * @param key
+     * @param value
+     */
     public void put(int key,int value){
         if(map.containsKey(key)){
             map.get(key).val=value;

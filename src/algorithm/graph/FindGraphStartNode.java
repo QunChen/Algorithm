@@ -63,7 +63,13 @@ public class FindGraphStartNode {
         System.out.println(findStart(nodes));
     }
 
-
+    /**
+     * create a set, add children from all node
+     * if not in the set, which is not anyone's parent, it is the start node.
+     * O(n^2)
+     * @param nodes
+     * @return
+     */
     public static Node findStart(List<Node> nodes){
 
         Set<Node> affected=new HashSet<>();
@@ -81,6 +87,13 @@ public class FindGraphStartNode {
         return null;
     }
 
+    /**
+     * from a node, add all children into set
+     * O(n)
+     * @param node
+     * @param affected
+     * @param from
+     */
     public static void checkParent(Node node,Set<Node> affected,boolean from){
 
         if(from){

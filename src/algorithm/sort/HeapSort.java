@@ -20,12 +20,23 @@ public class HeapSort {
         heap=new MinHeap<>();
     }
 
+    /**
+     * put all element into heap
+     * O(nlgn)
+     * @param list
+     */
     private void initialHeap(Integer[] list){
         for(Integer integer:list){
             heap.push(integer);
         }
     }
 
+    /**
+     * poll all data out, sorted by heap comparator algorithm
+     * O(n)
+     * @param list
+     * @return
+     */
     public Integer[] sort(Integer[] list){
         Integer[] sortedList=new Integer[list.length];
 

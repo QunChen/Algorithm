@@ -5,6 +5,13 @@ import java.util.Deque;
 
 /**
  * Created by qun.chen on 28/5/17.
+ * create an array to store current max
+ * use a deque to contain sliding window
+ * 1. add to sliding window size
+ * 2. move the first and add the next
+ * 3. in the array store the current max, if one value is larger than previous,
+ * pop them, if small, add to array as the next largest one after the larger one.
+ * O(n)
  */
 public class MaxSlidingWindow {
     public int[] maxSlidingWindow(int[] nums, int k) {

@@ -6,6 +6,11 @@ import java.util.*;
  * Created by qun.chen on 12/5/17.
  * https://leetcode.com/problems/word-ladder
  * accepted
+ * BFS
+ * if only one character different, it is considering as neighbours
+ * then apply standard BFS with visited
+ * return length, using null or diff different levels
+ * O(n)
  */
 public class WordLadder {
 

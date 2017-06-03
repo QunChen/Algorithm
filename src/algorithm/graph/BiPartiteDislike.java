@@ -43,6 +43,12 @@ public class BiPartiteDislike {
     }
 
 
+    /**
+     * 1. start form each node and using a full set of node to get the group
+     * 2. compare the number of node in each group
+     * O(n^3)
+     * @return
+     */
     public int findMax(){
         Iterator<GraphNode> iterator = all.iterator();
         int max=0;
@@ -56,6 +62,17 @@ public class BiPartiteDislike {
         return max;
     }
 
+    /**
+     * find number of nodes
+     * 1. not its child
+     * 2. not linked to this node
+     * 3. add left ones to the queue
+     * 4. finally when the queue is empty we find the biggest group
+     * O(n^2)
+     * @param first
+     * @param all
+     * @return
+     */
     public int findLikeFriends(GraphNode first,Set<GraphNode> all) {
         Iterator<GraphNode> iterator = all.iterator();//current available nodes
         Queue<GraphNode> queue = new LinkedList<>();//queue for BFS

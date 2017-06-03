@@ -18,6 +18,15 @@ public class QuickSort {
         quickSort(origin,0,origin.size()-1);
     }
 
+    /**
+     * 1.find pivotal in each split list
+     * 2. sort smaller part and larger part recursively
+     * 3. after all finished, all swap finished.
+     * O(nlgn)
+     * @param origin
+     * @param left
+     * @param right
+     */
     public static void quickSort(List<Integer> origin,int left,int right){
         if(left<right){
             int pivotalIndex = getPivotalIndex(origin,left,right);
@@ -26,6 +35,18 @@ public class QuickSort {
         }
     }
 
+    /**
+     * 1. use the first as pivotal
+     * 2. make head = first -1 and tail = last + 1
+     * 3. do while and stop when head is larger than pivotal and tail is less than
+     * pivotal
+     * 4. swap 2 elements
+     * 5. when head equal or over tail, return tail at the last element less than pivotal
+     * @param origin
+     * @param left
+     * @param right
+     * @return
+     */
     public static int getPivotalIndex(List<Integer> origin, int left, int right){
         int pivotalValue=origin.get(left);
 

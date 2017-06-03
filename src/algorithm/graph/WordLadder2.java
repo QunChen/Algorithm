@@ -4,6 +4,9 @@ import java.util.*;
 
 /**
  * Created by qun.chen on 26/5/17.
+ * performance is not passed.
+ * take a lot time and space to tracking all possible paths.
+ * There is a solution that just keep one path
  */
 public class WordLadder2 {
 
@@ -15,6 +18,16 @@ public class WordLadder2 {
         System.out.print(wordLadder2.findLadders(beginWord,endWord,new ArrayList<>(Arrays.asList(wordList))));
     }
 
+    /**
+     * BFS with tracking all passed path
+     * using a map for node -> all paths
+     * for node in the same level, has to backtrack visited to previous level and updating with the node
+     * O(n)
+     * @param beginWord
+     * @param endWord
+     * @param wordList
+     * @return
+     */
     public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
         if(beginWord==null||endWord==null||beginWord.length()!=endWord.length()){
             return new ArrayList<>();
@@ -82,6 +95,13 @@ public class WordLadder2 {
 
     }
 
+    /**
+     * add all parent path the current child node
+     *
+     * @param map
+     * @param parent
+     * @param child
+     */
     private void addPath(Map<String,Set<List<String>>> map, String parent, String child){
         Set<List<String>> parentPath=map.get(parent);
         Set<List<String>> childPath=new HashSet<>();
@@ -103,6 +123,14 @@ public class WordLadder2 {
 
     }
 
+    /**
+     * from a word, check visited and dictionary to find all valid neighbours
+     * O(26n)
+     * @param word
+     * @param visited
+     * @param wordSet
+     * @return
+     */
     private List<String> transform(String word,Set<String> visited,Set<String> wordSet){
         List<String> result=new ArrayList<>();
         for(int i=0;i<word.length();i++){

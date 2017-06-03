@@ -25,8 +25,21 @@ public class ReverseSecondHalfLinkedList {
 
         //ListNode head=reverseIteration(n1);
         reverse(n1);
+
+        System.out.print(n1);
     }
 
+    /**
+     * user fast and slow to find middle, if the number is odd, move both 1 advance
+     * store slow as connect to reversed list
+     * make slow.next to null
+     * then store pre, curr and next
+     * make curr to pre
+     * when next is null, reaching the last
+     * make slow connect to last
+     * O(n)
+     * @param node
+     */
     public static void reverse(ListNode node){
         if(node==null||node.next==null){
             return;
@@ -43,25 +56,25 @@ public class ReverseSecondHalfLinkedList {
             }
         }
 
-        ListNode current=slow;
-        ListNode next=slow.next;
-        ListNode next2=null;
-        if(next!=null){
-            next2=next.next;
-        }
+        ListNode head=slow;
 
-        current.next =null;
+        ListNode prev=slow.next;
+        ListNode curr=prev.next;
+        ListNode next=curr.next;
 
-        while(next!=null){
-            next.next=current;
-            current=next;
-            next=next2;
+        prev.next=null;
+
+        while(curr!=null){
+            curr.next=prev;
+            prev=curr;
+            curr=next;
             if(next!=null){
-                next2=next.next;
-            }else{
-                break;
+                next=next.next;
             }
-
         }
+
+
+        head.next=prev;
+
     }
 }

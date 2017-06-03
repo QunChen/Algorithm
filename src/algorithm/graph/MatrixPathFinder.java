@@ -16,6 +16,19 @@ public class MatrixPathFinder {
     }
 
 
+    /**
+     * recursively find from 8 directions
+     * add a visited for remember
+     * recursive function 8func(directions) OR with them if find return true;
+     * O(mn)
+     * @param matrix
+     * @param visited
+     * @param startRow
+     * @param startCol
+     * @param targetRow
+     * @param targetCol
+     * @return
+     */
     public static boolean findPath(int[][] matrix,boolean[][] visited,int startRow,int startCol,int targetRow,int targetCol){
         if(startRow<0||startRow>matrix.length-1||startCol<0||startCol>matrix[0].length-1){
             return false;

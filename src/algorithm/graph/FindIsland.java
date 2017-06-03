@@ -7,6 +7,12 @@ import java.util.Queue;
  */
 public class FindIsland {
 
+    /**
+     * for each valid one, which is the seperated with other valid cell
+     * find the max size
+     * O(mn)
+     * @param argv
+     */
     public static void main(String[] argv){
         int[][] matrix={{1, 1, 0, 0, 0},
                 {0, 1, 0, 0, 1},
@@ -34,6 +40,16 @@ public class FindIsland {
         System.out.println(maxSize);
     }
 
+    /**
+     * recursively go to 8 directions when there is a way
+     * recursive function   8func(directions)+1 (this one is eligible)
+     * if traversed, flip it to unavailable
+     * O(mn)
+     * @param matrix
+     * @param row
+     * @param col
+     * @return
+     */
     public static int find(int[][]matrix,int row,int col){
         if(row<0||row>matrix.length-1||col<0||col>matrix[0].length-1||matrix[row][col]==0){
             return 0;

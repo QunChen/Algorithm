@@ -55,6 +55,14 @@ e_r,i->i,s_r
 i,s_c -> s_c,e_r-i
 
      */
+
+/**
+ * another easy way is following
+ * construct the result using value in [m][n] to [n][m]
+ * rotate to right, swap left half with right half
+ * rotate to left, swap top half with bottom half
+ * O(mn)
+ */
 public class RotateMatrix {
 
     public static void main(String[] argv){
@@ -75,6 +83,18 @@ public class RotateMatrix {
     }
 
 
+    /**
+     * 1. move 4 corners
+     * 2. move top to right
+     * 3. move right to bottom
+     * 4. move bottom to left
+     * 5. move left to top
+     * move to inner matrix by updating start/end row/column
+     * 6 when no more, finish
+     * O(mn)
+     * @param matrix
+     * @return
+     */
     public static int[][] rotate(int[][]matrix){
         int startRow=0;
         int endRow=matrix.length-1;

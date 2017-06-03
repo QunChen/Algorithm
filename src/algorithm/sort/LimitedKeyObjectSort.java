@@ -11,17 +11,17 @@ public class LimitedKeyObjectSort {
 
     public static void main(String[] argv){
         Item item1=new Item(3);
-        Item item2=new Item(1);
+        Item item2=new Item(3);
         Item item3=new Item(3);
         Item item4=new Item(1);
         Item item5=new Item(2);
         Item item6=new Item(2);
-        Item item7=new Item(1);
+        Item item7=new Item(3);
         Item[] a={item1,item2,item3,item4,item5,item6,item7};
         //Item[] sorted=prioritySort(a);
         //Item[] sorted=bucketSort(a);
         swapSort(a);
-        System.out.print(a);
+        System.out.print(Arrays.toString(a));
     }
 
     public static class Item implements Comparable<Item>{
@@ -38,6 +38,13 @@ public class LimitedKeyObjectSort {
         }
     }
 
+    /**
+     * use a priority queue, which is a heap to sort
+     * pull all in and poll base on the comparator algorithm
+     * O(nlgn)
+     * @param a
+     * @return
+     */
     public static Item[] prioritySort(Item[] a){
         Queue<Item> queue=new PriorityQueue<>();
         queue.addAll(Arrays.asList(a));
@@ -51,6 +58,13 @@ public class LimitedKeyObjectSort {
         return result;
     }
 
+    /**
+     * put items into bucket base on the value, need to know all values or value range
+     * If the data is too dense, too many items fall into the same bucket, only slightly better than other sorting
+     * O(n)
+     * @param a
+     * @return
+     */
     public static Item[] bucketSort(Item[] a){
         Item[][] items=new Item[3][a.length];
         int x=0,y=0,z=0;
@@ -76,6 +90,12 @@ public class LimitedKeyObjectSort {
         return result;
     }
 
+    /**
+     * set 2 pointers, one from head, one from tail, swap if head is larger than tail
+     * stop when head over tail
+     * NOT WORKING FOR ALL CASES
+     * @param a
+     */
     public static void swapSort(Item[] a){
         int i=0;
         int j=a.length-1;
