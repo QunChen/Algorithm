@@ -28,7 +28,7 @@ public class SerializeAndDeserializeBinaryTree {
         n5.left = n7;
 
         SerializeAndDeserializeBinaryTree serializeAndDeserializeBinaryTree = new SerializeAndDeserializeBinaryTree();
-        String result = serializeAndDeserializeBinaryTree.serialize(n1);
+        String result = serializeAndDeserializeBinaryTree.serialize(null);
         System.out.println(result);
         TreeNode root = serializeAndDeserializeBinaryTree.deserialize(result);
         System.out.println(root);
@@ -44,7 +44,7 @@ public class SerializeAndDeserializeBinaryTree {
     }
 
     /**
-     * save node value to a string by pre order
+     * save node value to a string by in order
      * save null to a special character
      * add delimiters between 2 nodes
      * o(n)
@@ -79,7 +79,7 @@ public class SerializeAndDeserializeBinaryTree {
     }
 
     /**
-     * recursively construct the tree using pre order
+     * recursively construct the tree using in order
      * if is special character, return null by contract
      * otherwise create the node and get left and right subtree populated
      * after all finished return root
@@ -90,7 +90,7 @@ public class SerializeAndDeserializeBinaryTree {
     public TreeNode preorderDeserialize(Deque<String> list) {
         String value=list.remove();
 
-        if(value.equals("*")){
+        if(value.equals("*")||value.equals("")){
             return null;
         }
         TreeNode treeNode=new TreeNode(Integer.parseInt(value));

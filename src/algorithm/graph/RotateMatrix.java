@@ -66,11 +66,33 @@ i,s_c -> s_c,e_r-i
 public class RotateMatrix {
 
     public static void main(String[] argv){
-        int[][] matrix={{1,2,3,4,5},{5,6,7,8,9},{9,0,1,2,3},{3,4,5,6,7}};
+        int[][] matrix={{1,2},{3,4}};
         print(matrix);
-        int[][] rotate=rotate(matrix);
+        rotate2(matrix);
         System.out.println("Rotated");
-        print(rotate);
+        print(matrix);
+    }
+
+    public static void rotate2(int[][] matrix) {
+
+        int n=matrix.length;
+        for(int row=0;row<n;row++){
+            for(int col=0;col<n/2;col++){
+                int temp=matrix[row][col];
+                matrix[row][col]=matrix[col][row];
+                matrix[col][row]=temp;
+            }
+        }
+
+        print(matrix);
+
+        for(int row=0;row<n;row++){
+            for(int col=0;col<n/2;col++){
+                int temp=matrix[row][col];
+                matrix[row][col]=matrix[row][n-col-1];
+                matrix[row][n-col-1]=temp;
+            }
+        }
     }
 
     public static void print(int[][] matrix){

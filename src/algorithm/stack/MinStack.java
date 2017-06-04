@@ -9,27 +9,19 @@ public class MinStack {
     private Stack<Integer> stack;
     private int min;
 
+
+    //["MinStack","push","push","push","getMin","pop","getMin"]
+    //        [[],[0],[1],[0],[],[],[]]
     public static void main(String[] argv){
         MinStack minStack=new MinStack();
-        minStack.push(3);
-        minStack.push(2);
-        minStack.push(5);
-        minStack.push(4);
+        minStack.push(0);
         minStack.push(1);
-        minStack.push(6);
+        minStack.push(0);
 
         System.out.println(minStack.getMin());
-        System.out.println(minStack.pop());
+        minStack.pop();
         System.out.println(minStack.getMin());
-        System.out.println(minStack.pop());
-        System.out.println(minStack.getMin());
-        System.out.println(minStack.pop());
-        System.out.println(minStack.getMin());
-        System.out.println(minStack.pop());
-        System.out.println(minStack.getMin());
-        System.out.println(minStack.pop());
-        System.out.println(minStack.getMin());
-        System.out.println(minStack.pop());
+
     }
 
     public MinStack(){
@@ -46,7 +38,7 @@ public class MinStack {
      * @param i
      */
     public void push(int i){
-        if(i<min){
+        if(i<=min){
             stack.push(min);
             min=i;
         }
@@ -61,14 +53,17 @@ public class MinStack {
      * O(1)
      * @return
      */
-    public int pop(){
+    public void pop(){
         int i=stack.pop();
         if(i==min){
             min=stack.pop();
         }
-        return i;
     }
 
+    public int top(){
+
+        return stack.peek();
+    }
     /**
      * O(1)
      * @return
