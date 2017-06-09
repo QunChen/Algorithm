@@ -40,7 +40,7 @@ public class PathWithSumKPartial {
 
     /**
      * backtracking
-     * in order
+     * pre order
      * first add each node, when reaching the left, calculate the possible sub path
      * remove last adding to return recursion call stack
      * O(n^3)

@@ -28,6 +28,15 @@ public class BinaryExpressionTree {
         System.out.println(postfix2(n1));
     }
 
+    /**
+     * post order
+     * recursively find the left subtree and right subtree
+     * then base on the operator to calculate
+     * when the subtree has both left and right, it could be the parent, which is
+     * the operator
+     * @param node
+     * @return
+     */
     public static int postfix2(TreeNode<String> node){
         if(node==null){
             return -1;

@@ -1,4 +1,4 @@
-package dataStructures;
+package algorithm.tree;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +16,14 @@ public class ClosestNodeInBST {
         System.out.println(node2);
     }
 
+    /**
+     * find the pre and next node of value
+     * find the closest one
+     * O(logn)
+     * @param root
+     * @param value
+     * @return
+     */
     public static Node findClosest2(Node root,int value){
         List<Node> nodes=new ArrayList<>();
         inOrder(root,nodes);
@@ -33,6 +41,11 @@ public class ClosestNodeInBST {
         return Math.abs(small.value-value)>Math.abs(large.value-value)?large:small;
     }
 
+    /**
+     * O(logn)
+     * @param node
+     * @param nodes
+     */
     public static void inOrder(Node node,List<Node> nodes){
         if(node==null){
             return;
@@ -43,6 +56,18 @@ public class ClosestNodeInBST {
         inOrder(node.right,nodes);
     }
 
+    /**
+     * pre order
+     * check the the distance of current node and current closestNode
+     * if equal, return the node,
+     * if find more closer one, update closest node
+     * if it is leaf node, return  closest node
+     * O(logn)
+     * @param root
+     * @param value
+     * @param closestNode
+     * @return
+     */
     public static Node findClosest(Node root, int value,Node closestNode){
 
         if(Math.abs(closestNode.value-value)>Math.abs(root.value-value)){

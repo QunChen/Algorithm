@@ -1,4 +1,4 @@
-package dataStructures;
+package algorithm.tree;
 
 import dataStructures.BinaryTree.TreeNode;
 
@@ -7,7 +7,7 @@ import java.util.*;
 /**
  * Created by qun.chen on 5/5/17.
  */
-public class ReadDifferently {
+public class BinaryTreeZigzagLevelOrderTraversal {
 
     public static void main(String[] argv) {
         TreeNode treeNode1 = new TreeNode(1);
@@ -31,7 +31,18 @@ public class ReadDifferently {
         System.out.print(results);
     }
 
-
+    /**
+     * 1. use a queue for left to right
+     * 2. use a stack for right to left
+     * 3. set a flag for flipping
+     * 4. when read from left to right, read left first, push to stack,
+     * then next level will be from right to left
+     * 5. when read from right to left, read right first,push to queue,
+     * then next level will be from left to right
+     * O(logn)
+     * @param root
+     * @return
+     */
     public static List<TreeNode> read(TreeNode root) {
         List<TreeNode> treeNodes = new ArrayList<>();
         Queue<TreeNode> treeNodeQueue = new LinkedList<>();

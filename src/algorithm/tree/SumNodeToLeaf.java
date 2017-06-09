@@ -1,4 +1,4 @@
-package dataStructures;
+package algorithm.tree;
 
 import dataStructures.BinaryTree.TreeNode;
 
@@ -30,6 +30,17 @@ public class SumNodeToLeaf {
     }
 
 
+    /**
+     * pre order
+     * recursively find whether the value is same
+     * recursive function 2 func(subtree,value-subtree node value), Or the
+     * result from left and right, means if one side is find, that is satisfied
+     * base condition: value is same with current node value
+     * O(n)
+     * @param treeNode
+     * @param value
+     * @return
+     */
     public static boolean isFind(TreeNode<Integer> treeNode, int value){
         if(treeNode.left==null&& treeNode.right==null){
             return treeNode.val ==value;

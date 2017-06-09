@@ -50,7 +50,7 @@ public class PathWithSumK {
     }
 
     /**
-     * in order
+     * pre order
      * backtracking
      * 1. calculate the current sum, add to current path
      * 2. if equal to target, deep copy to result list, revoke step 1 for backtracking

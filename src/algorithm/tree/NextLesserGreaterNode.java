@@ -49,7 +49,7 @@ public class NextLesserGreaterNode {
     }
 
     /**
-     * pre order
+     * in order
      * if smaller than target val, keep updating lesser
      * if bigger than target val, get the greater and set flag find true.
      * O(n)

@@ -1,4 +1,4 @@
-package dataStructures;
+package algorithm.string;
 
 /**
  * Created by qun.chen on 24/4/17.
@@ -10,8 +10,16 @@ import java.text.*;
 import java.math.*;
 import java.util.regex.*;
 
-public class StacksBalancedBrackets {
+public class ValidParentheses {
 
+    /**
+     * traverse the expression
+     * push when reaching left parentheses
+     * peek and compare when reaching fight parentheses
+     * O(n)
+     * @param expression
+     * @return
+     */
     public static boolean isBalanced(String expression) {
         Stack<Character> stacks=new Stack<>();
         char[] characters=expression.toCharArray();

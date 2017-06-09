@@ -1,4 +1,4 @@
-package dataStructures;
+package algorithm.string;
 
 /**
  * https://www.hackerrank.com/challenges/ctci-making-anagrams
@@ -46,6 +46,15 @@ import java.text.*;
 import java.math.*;
 import java.util.regex.*;
 public class StringsMakingAnagrams {
+    /**
+     * make two maps from character to number of occurrence
+     * traverse both strings to populate the maps
+     * find out the total difference of occurrence
+     * O(n)
+     * @param first
+     * @param second
+     * @return
+     */
     public static int numberNeeded(String first, String second) {
         char[] firstCharArray = first.toCharArray();
         char[] secondCharArray = second.toCharArray();

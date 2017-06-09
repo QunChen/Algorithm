@@ -9,26 +9,36 @@ public class RandomizedCollection {
 
     public static void main(String[] argv){
 
+        /*
+["RandomizedSet","insert","insert","remove","insert","insert","insert","remove","remove","insert",
+"remove","insert","insert","insert","insert","insert","getRandom","insert","remove","insert","insert"]
+[[],[3],[-2],[2],[1],[-3],[-2],[-2],[3],[-1],[-3],[1],[-2],[-2],[-2],[1],[],[-2],[0],[-3],[1]]
+         */
         RandomizedCollection randomizedCollection=new RandomizedCollection();
-        System.out.println(randomizedCollection.insert(2));
-        System.out.println(randomizedCollection.insert(1));
-        System.out.println(randomizedCollection.insert(2));
-        System.out.println(randomizedCollection.insert(1));
-        System.out.println(randomizedCollection.insert(2));
-
-        System.out.println(randomizedCollection.remove(1));
-        System.out.println(randomizedCollection.remove(1));
+        System.out.println(randomizedCollection.insert(3));
+        System.out.println(randomizedCollection.insert(-2));
         System.out.println(randomizedCollection.remove(2));
-
         System.out.println(randomizedCollection.insert(1));
-
-        System.out.println(randomizedCollection.remove(2));
-
+        System.out.println(randomizedCollection.insert(-3));
+        System.out.println(randomizedCollection.insert(-2));
+        System.out.println(randomizedCollection.remove(-2));
+        System.out.println(randomizedCollection.remove(3));
+        System.out.println(randomizedCollection.insert(-1));
+        System.out.println(randomizedCollection.remove(-3));
+        System.out.println(randomizedCollection.insert(1));
+        System.out.println(randomizedCollection.insert(-2));
+        System.out.println(randomizedCollection.insert(-2));
+        System.out.println(randomizedCollection.insert(-2));
+        System.out.println(randomizedCollection.insert(1));
         System.out.println(randomizedCollection.getRandom());
+        System.out.println(randomizedCollection.insert(-2));
+        System.out.println(randomizedCollection.remove(0));
+        System.out.println(randomizedCollection.insert(-3));
+        System.out.println(randomizedCollection.insert(1));
     }
 
 
-    private Map<Integer,Set<Integer>> map;//val->index in list
+    private Map<Integer,Integer> map;//val->index in list
     private List<Integer> list;
 
 
@@ -52,15 +62,10 @@ public class RandomizedCollection {
      * */
     public boolean insert(int val) {
         boolean notFind=!contains(val);
-        list.add(val);
-        Set<Integer> indexQ=null;
         if(notFind){
-            indexQ=new HashSet<>();
-        }else{
-            indexQ=map.get(val);
+            list.add(val);
+            map.put(val,list.size()-1);
         }
-        indexQ.add(list.size()-1);
-        map.put(val,indexQ);
         return notFind;
     }
 
@@ -77,19 +82,14 @@ public class RandomizedCollection {
         boolean isFind=contains(val);
         if(isFind){
             int lastIndex=list.size()-1;
-            Iterator<Integer> it = map.get(val).iterator();
-            int index=it.next();
+            int index = map.get(val);
             if(val!=list.get(lastIndex)){
-                map.get(list.get(lastIndex)).remove(lastIndex);
-                map.get(list.get(lastIndex)).add(index);
-                swap(list,index,list.size()-1);
+                map.put(list.get(lastIndex),index);
+                swap(list,index,lastIndex);
             }
             list.remove(list.size()-1);
-            if(map.get(val).isEmpty()){
-                map.remove(val);
-            }else{
-                it.remove();
-            }
+            map.remove(val);
+
         }
         return isFind;
     }

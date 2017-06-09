@@ -1,7 +1,11 @@
-package dataStructures;
+package algorithm.list;
 
 import java.util.*;
 
+/**
+ * for each element, get a new index
+ * O(n)
+ */
 public class ArraysLeftRotation {
 
     public static void main(String[] args) {

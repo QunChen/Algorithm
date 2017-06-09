@@ -1,4 +1,4 @@
-package dataStructures;
+package algorithm.data_structure;
 
 /**
  * Created by qun.chen on 24/4/17.
@@ -15,11 +15,19 @@ public class QueuesATaleofTwoStacks {
         Stack<T> stackNewestOnTop = new Stack<T>();
         Stack<T> stackOldestOnTop = new Stack<T>();
 
+        /**
+         * push to newest stack
+         * @param value
+         */
         public void enqueue(T value) { // Push onto newest stack
             stackNewestOnTop.push(value);
 
         }
 
+        /**
+         * before peek, check oldest stack
+         * @return
+         */
         public T peek() {
             preOld();
             return stackOldestOnTop.peek();
@@ -30,6 +38,10 @@ public class QueuesATaleofTwoStacks {
             return stackOldestOnTop.pop();
         }
 
+        /**
+         * when the oldest stack is empty
+         * push the newest in, so the order is satisfied
+         */
         public void preOld() {
             if (stackOldestOnTop.isEmpty())
                 while (!stackNewestOnTop.isEmpty()) {

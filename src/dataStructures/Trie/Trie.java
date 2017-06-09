@@ -1,5 +1,7 @@
 package dataStructures.Trie;
 
+import java.util.HashMap;
+
 /**
  * Created by qun.chen on 19/5/17.
  */
@@ -30,6 +32,13 @@ public class Trie<T> {
         root = new TrieNode("");
     }
 
+    /**
+     * loop through list and update current pointer.
+     * if finished early, mark it terminated at the last node
+     * otherwise, add the left as the subtree
+     * O(logn)
+     * @param list
+     */
     public void push(T[] list) {
 
         TrieNode current = root;
@@ -49,6 +58,14 @@ public class Trie<T> {
         }
     }
 
+    /**
+     * add the first element to last find element's child
+     * keep adding new element in previous element's child
+     * O(n)
+     * @param root
+     * @param list
+     * @param curr
+     */
     private void buildSub(TrieNode root, T[] list, int curr) {
         for (int i = curr; i < list.length; i++) {
             TrieNode newNode = new TrieNode(list[i]);
@@ -61,6 +78,13 @@ public class Trie<T> {
     }
 
 
+    /**
+     * search on each character, if all element are found
+     * check whether the last one is terminated
+     * O(logn)
+     * @param list
+     * @return
+     */
     public boolean search(T[] list){
         TrieNode current = root;
         for (int i = 0; i < list.length; i++) {

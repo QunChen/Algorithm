@@ -1,4 +1,4 @@
-package dataStructures;
+package algorithm.data_structure;
 
 /**
  * Created by qun.chen on 24/4/17.
@@ -32,6 +32,10 @@ public class TriesContacts {
     }
 
 
+    /**
+     * use a map to store all children
+     * use a boolean to mark it terminated
+     */
     public static class TrieNode {
         private Map<Character,TrieNode> children;
         private boolean isWord;
@@ -47,6 +51,12 @@ public class TriesContacts {
             this.character = character;
         }
 
+        /**
+         * 1. find out the first character is not in the children
+         * 2. then add a new children
+         * 3. set the word true
+         * O(logn)
+         */
         protected void addWord(String word) {
             int length = word.length();
             TrieNode next = this;
@@ -62,6 +72,13 @@ public class TriesContacts {
             next.isWord = true;
         }
 
+        /**
+         * look through all character
+         * if not all characters are found, return 0
+         * O(logn)
+         * @param word
+         * @return
+         */
         protected int findWord(String word) {
             int length = word.length();
             TrieNode next = this;
@@ -85,6 +102,14 @@ public class TriesContacts {
             return occurrencesOfChar(next);
         }
 
+        /**
+         * use the current node to find number of children
+         * add the current node to stack
+         * if it is a word, add occurrence
+         * when  not more children, finish
+         * @param node
+         * @return
+         */
         public int occurrencesOfChar(TrieNode node) {
 
             Stack<TrieNode> stacks = new Stack<>();

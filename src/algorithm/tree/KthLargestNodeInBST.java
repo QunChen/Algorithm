@@ -31,7 +31,7 @@ public class KthLargestNodeInBST {
     }
 
     /**
-     * pre-order traverse and find the kth one because it is BST
+     * in-order traverse and find the kth one because it is BST
      * use a count to find out the sequence
      * O(lgn)
      * @param node

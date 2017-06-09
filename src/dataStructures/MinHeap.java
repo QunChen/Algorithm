@@ -15,6 +15,14 @@ public class MinHeap<T extends Comparable<T> > {
         data.add(val);
         heaplifyUp(data.size()-1);
     }
+
+    /**
+     * remove the first element
+     * swap the last to first
+     * heaplify down
+     * O(logn)
+     * @return
+     */
     public T poll(){
         if(isValid()){
             T top = data.get(0);
@@ -31,6 +39,15 @@ public class MinHeap<T extends Comparable<T> > {
         }else{
             return null;
         }}
+
+    /**
+     * 1. find the left and right index, check with in list
+     * 2. find the smallest among itself and 2 children
+     * 3. make sure the smallest is the parent, if not the current parent
+     * 4. recursively call it self using the same value in lower level
+     * O(logn)
+     * @param index
+     */
     private void heaplifyDown(int index){
         int smallest=index;
         int left=2*index+1;
@@ -45,6 +62,14 @@ public class MinHeap<T extends Comparable<T> > {
             swap(index,smallest);
             heaplifyDown(smallest);
         }}
+
+    /**
+     * 1. find the parent index
+     * 2. if the parent is larger, move up
+     * 3. finish when no more parent is larger
+     * O(logn)
+     * @param index
+     */
     private void heaplifyUp(int index){
         int curr=index;
         int parent=(index-1)/2;
