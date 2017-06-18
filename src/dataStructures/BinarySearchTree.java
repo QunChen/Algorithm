@@ -1,6 +1,7 @@
 package dataStructures;
 
 import dataStructures.BinaryTree.TreeNode;
+import dataStructures.LinkedList.ListNode;
 
 /**
  * Created by qun.chen on 2/5/17.
@@ -113,6 +114,98 @@ public class BinarySearchTree {
             }else{
                 current=current.right;
                 distance++;
+            }
+        }
+    }
+
+    /**
+     * Created by qun.chen on 11/6/17.
+     */
+    public static class LinkedList {
+
+        public static void main(String[] argv){
+            LinkedList linkedList=new LinkedList();
+            System.out.println(linkedList.add(1));
+            System.out.println(linkedList.add(2));
+            System.out.println(linkedList.add(3));
+            System.out.println(linkedList.add(4));
+            System.out.println(linkedList.remove(2));
+            System.out.println(linkedList.get(2));
+            System.out.println(linkedList.get(3));
+            System.out.println(linkedList.set(2,5));
+            linkedList.clear();
+        }
+
+        private int size ;
+        private int modCount;
+        private ListNode first;
+        private ListNode last;
+
+        public LinkedList(){
+
+        }
+
+        public boolean add(Integer e) {
+            if(first==null){
+                first=new ListNode(e);
+                last=first;
+            }else{
+                last.next=new ListNode(e);
+                last=last.next;
+            }
+            size++;
+            modCount++;
+            return true;
+        }
+
+        public boolean remove(int o) {
+            ListNode prev=null;
+            ListNode current=first;
+            while(current!=null){
+                if(current.val==o){
+                    prev.next=current.next;
+                    size--;
+                    modCount++;
+                    return true;
+                }
+                prev=current;
+                current=current.next;
+            }
+            return false;
+        }
+
+        public void clear() {
+            first=null;
+            last=null;
+            size=0;
+            modCount++;
+        }
+
+        public Integer get(int index) {
+            ListNode current=first;
+            while(index>0&&current!=null){
+                index--;
+                current=current.next;
+            }
+            if(current==null){
+                return -1;
+            }else{
+                return current.val;
+            }
+        }
+
+        public Integer set(int index, Integer element) {
+            ListNode current=first;
+            while(index>0&&current!=null){
+                index--;
+                current=current.next;
+            }
+            if(current==null){
+                return -1;
+            }else{
+                int old=current.val;
+                current.val=element;
+                return old;
             }
         }
     }

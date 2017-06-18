@@ -55,7 +55,7 @@ public class TriesContacts {
          * 1. find out the first character is not in the children
          * 2. then add a new children
          * 3. set the word true
-         * O(logn)
+         * O(word size)
          */
         protected void addWord(String word) {
             int length = word.length();

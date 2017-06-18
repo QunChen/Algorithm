@@ -8,7 +8,7 @@ import java.util.Queue;
 public class FindIsland {
 
     /**
-     * for each valid one, which is the seperated with other valid cell
+     * for each valid one, which is the separated with other valid cell
      * find the max size
      * O(mn)
      * @param argv

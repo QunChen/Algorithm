@@ -17,7 +17,7 @@ public class KthLargestNumber {
     }
 
     /**
-     * get a pivotal which separate the list , if the index+1 =k, that mean index number
+     * get a pivotal which separate the list , if the index+1 =k, that means index number
      * of element is smaller than k.
      * if it is smaller than k, so it will be in the right,
      * if it is larger than k, so it will be in the left
@@ -41,7 +41,7 @@ public class KthLargestNumber {
     }
 
     /**
-     * 1. choose the first at pivotal
+     * 1. choose the first as pivotal
      * 2. head start for first, tail from last+1
      * 3. do while if head larger than pivotal and tail smaller than pivotal
      * 4. swap

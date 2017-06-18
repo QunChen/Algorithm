@@ -5,7 +5,7 @@ import java.util.Map;
 
 /**
  * Created by qun.chen on 28/5/17.
- * add each character to a map, it find it in the map and within this substring,
+ * add each character to a map, if find it in the map and within this substring,
  * get the size and compare with max, next substring will start from next element
  * O(n)
  */

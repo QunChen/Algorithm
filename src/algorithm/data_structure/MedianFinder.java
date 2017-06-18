@@ -15,7 +15,9 @@ public class MedianFinder {
         }
     }
 
-
+    /**
+     * min heap for larger half, max heap for smaller half
+     */
     PriorityQueue<Integer> minheap;
     PriorityQueue<Integer> maxheap;
 
@@ -24,6 +26,13 @@ public class MedianFinder {
         maxheap = new PriorityQueue<>((i1, i2) -> i2 - i1);
     }
 
+    /**
+     * first add to larger part
+     * if the size difference over 1, move to smaller part
+     * if the added one is smaller than the largest in the smaller part, swap
+     * O(1)
+     * @param num
+     */
     public void addNum(int num) {
         minheap.offer(num);
 
@@ -39,6 +48,12 @@ public class MedianFinder {
 
     }
 
+    /**
+     * if the larger part is more than 1, get it
+     * other wise get the average of both heap
+     * O(1)
+     * @return
+     */
     public double findMedian() {
         if (minheap.size() - maxheap.size() == 1) {
             return minheap.peek();

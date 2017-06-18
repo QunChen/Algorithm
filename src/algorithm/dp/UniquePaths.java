@@ -38,7 +38,7 @@ public class UniquePaths {
      * 1. if the result is cached, return cached value
      * 2. if get to destination, return 1
      * 3. recursively find path from bottom and right and sum
-     * 4. set the memory for each cell from recursion call stack, nearest to farest.
+     * 4. set the memory for each cell from recursion call stack, nearest to far.
      * 4. return the bottom right value
      * O(mn)
      * @param row

@@ -48,7 +48,7 @@ public class MinStack {
     /**
      * 1. pop the element
      * 2. if the popped element is equal to current the min
-     * pop the next element to update min because it will be the min without popped
+     * pop the next element to update min because it will be the min before popped
      * element
      * O(1)
      * @return

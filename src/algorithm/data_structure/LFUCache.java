@@ -31,6 +31,9 @@ public class LFUCache {
     private Map<Integer,Node> nodeMap;
     private int time;
 
+    /**
+     * key, value, update time, total count
+     */
     public static class Node{
         private int key;
         private int value;
@@ -45,6 +48,10 @@ public class LFUCache {
         }
     }
 
+    /**
+     * initial capacity, create a tree set by first count, then time in reverse order
+     * @param capacity
+     */
     public LFUCache(int capacity) {
         time++;
         set=new TreeSet<>((i1, i2)->{
@@ -57,6 +64,14 @@ public class LFUCache {
         nodeMap=new HashMap<>();
     }
 
+    /**
+     * get a key,
+     * increase the timeline
+     * if the map contains the key, increase count, update the time, re-add it into set for sorting
+     * O(1)
+     * @param key
+     * @return
+     */
     public int get(int key) {
         time++;
         if(nodeMap.containsKey(key)){
@@ -72,6 +87,16 @@ public class LFUCache {
 
     }
 
+    /**
+     * increase the time
+     * if exist, update time and value then re-add into set
+     * if not exist, if reach capacity, get the first in set, which is most rare and old,
+     *              remove it from node map,
+     *  then add the new node into put and set
+     *  O(1)
+     * @param key
+     * @param value
+     */
     public void put(int key, int value) {
         time++;
         if(capacity<=0){

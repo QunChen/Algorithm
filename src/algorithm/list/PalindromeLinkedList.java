@@ -2,8 +2,6 @@ package algorithm.list;
 
 import dataStructures.LinkedList.ListNode;
 
-import java.util.List;
-
 /**
  * Created by qun.chen on 9/6/17.
  */

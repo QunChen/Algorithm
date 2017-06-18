@@ -17,6 +17,7 @@ public class QueuesATaleofTwoStacks {
 
         /**
          * push to newest stack
+         * O(1)
          * @param value
          */
         public void enqueue(T value) { // Push onto newest stack
@@ -26,6 +27,7 @@ public class QueuesATaleofTwoStacks {
 
         /**
          * before peek, check oldest stack
+         * O(1)
          * @return
          */
         public T peek() {
@@ -41,6 +43,7 @@ public class QueuesATaleofTwoStacks {
         /**
          * when the oldest stack is empty
          * push the newest in, so the order is satisfied
+         * O(n)
          */
         public void preOld() {
             if (stackOldestOnTop.isEmpty())

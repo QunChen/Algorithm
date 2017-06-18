@@ -1,6 +1,5 @@
 package algorithm.list;
 
-import dataStructures.BinaryTree.TreeNode;
 import dataStructures.LinkedList.ListNode;
 
 import java.util.PriorityQueue;

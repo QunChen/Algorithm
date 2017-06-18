@@ -33,7 +33,7 @@ public class LRUCache {
     }
 
     /**
-     * store the capacity, head and tail for add and remove, and a map from value to node
+     * store the capacity, head and tail for add and remove, and a map from key to node
      *
      */
     private int capacity;
@@ -42,6 +42,10 @@ public class LRUCache {
     private CacheNode tail;
     private Map<Integer,CacheNode> map;
 
+    /**
+     * initial head and tail
+     * @param capacity
+     */
     public LRUCache(int capacity){
         this.capacity=capacity;
         count=0;
@@ -104,8 +108,8 @@ public class LRUCache {
     }
 
     /**
-     * if the key exist, move to head,
-     * otherwise if it is not full, add to map
+     * if the key exist, update the value,move to head,
+     * otherwise if it is not full, add to map and add to head
      * if it is going to be full, remove the tail because it is least accessed
      * O(1)
      * @param key

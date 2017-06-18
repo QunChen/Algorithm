@@ -49,14 +49,14 @@ public class RandomizedCollection {
      * */
     public RandomizedCollection() {
         map=new HashMap<>();
-        list=new LinkedList<>();
+        list=new ArrayList<>();
 
 
     }
 
     /** Inserts a value to the collection. Returns true if the collection did not already contain the specified element.
      *  1. add the val to list
-     *  2. add the index to set as the value for that map on the key of this value
+     *  2. add the val and index to map
      *  O(1)
      *
      * */
@@ -71,11 +71,11 @@ public class RandomizedCollection {
 
     /** Removes a value from the collection. Returns true if the collection contained the specified element.
      * 1. get the last element list
-     * 2. get the first index for the selected list
-     * 3. use the index from step 2 to populate list contains last element in the list
+     * 2. get the index for the selected val from map
+     * 3. update the index of last in the list using remove index
      * 4. swap the value in the step 1 with step 2
-     * 5. remove the index found in step 2
-     * 6. remove key if index value is empty
+     * 5. remove the the last index in list
+     * 6. remove key in the map
      * O(1)
      * */
     public boolean remove(int val) {

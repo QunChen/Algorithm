@@ -7,7 +7,7 @@ import java.util.Map;
  * Created by qun.chen on 6/5/17.
  * need to check corner case, too complicated
  * 1. get step (a.length+b.length-k+1)/2,
- * 2. than compare the number of each at the step position, the large one means all
+ * 2. then compare the number of each at the step position, the large one means all
  * later ones must larger than k, count it
  * 3. update smaller side to large part and larger side to smaller part
  * 4. half the step

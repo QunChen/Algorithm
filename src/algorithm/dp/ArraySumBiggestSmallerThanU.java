@@ -18,7 +18,7 @@ public class ArraySumBiggestSmallerThanU {
     private static int mintop;
 
     public static void main(String[] argv){
-    int[][] matrix={{1,2,3},{2,5,6},{3,8,9}};
+    int[][] matrix={{1,2,3},{2,5,6},{11,13,14}};
     mintop=Integer.MAX_VALUE;
     findMax(15,matrix);
     System.out.print(15-mintop);
@@ -30,17 +30,21 @@ public class ArraySumBiggestSmallerThanU {
      * @param matrix
      * @return
      */
-    public static int findMax(int top, int[][]matrix){
+    public static void findMax(int top, int[][]matrix){
         int[] mins=findMins(matrix);
         int[][] transformedMatrix=transform(matrix,mins);
 
         int sum=findSumMins(mins);
+        if(sum>=top){
+           mintop=16;
+           return;
+        }
 
         findMaxInArray(top-sum,transformedMatrix,0);
-        return mintop;
     }
 
     /**
+     * get the sum of min in each row
      * O(n)
      * @param mins
      * @return
@@ -77,6 +81,11 @@ public class ArraySumBiggestSmallerThanU {
             if(array[i]<top){
                 findMaxInArray(top-array[i],matrix,row+1);
             }
+        }
+
+        if(top<mintop)
+        {
+            mintop=top;
         }
 
         return top;
