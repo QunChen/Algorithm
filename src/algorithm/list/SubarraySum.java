@@ -12,7 +12,7 @@ public class SubarraySum {
     public static void main(String[] args)
     {
         int arr[] = {16, 2, 4, 7, 9, 5, 10, 23};
-        int sum = 23;
+        int sum = 24;
         int[] result=findSubarray(arr, sum);
         int[] result2=findSubarray2(arr, sum);
         System.out.print(Arrays.toString(result));

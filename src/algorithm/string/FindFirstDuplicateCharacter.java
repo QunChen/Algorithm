@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * Created by qun.chen on 20/5/17.
  * 1. create a map from character to index
- * 2. traverse the character, if not in the add, otherwise find the index
+ * 2. traverse the character, if not in then add, otherwise find the index
  * 3. return the index which is the last occurrence of the same character
  * O(n)
  */

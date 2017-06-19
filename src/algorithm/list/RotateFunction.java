@@ -11,6 +11,12 @@ public class RotateFunction {
         System.out.println(rotateFunction.maxRotateFunction(A));
     }
 
+    /**
+     * for next rotate -> current += (a+b+c+d)-n*current rotated element
+     * O(n)
+     * @param A
+     * @return
+     */
     public int maxRotateFunction(int[] A) {
         if(A==null||A.length==0){
             return 0;
@@ -29,6 +35,11 @@ public class RotateFunction {
 
     }
 
+    /**
+     * get the total of all numbers
+     * @param A
+     * @return
+     */
     private int total(int[] A){
         int sum=0;
         for(int i=0;i<A.length;i++){
@@ -37,6 +48,11 @@ public class RotateFunction {
         return sum;
     }
 
+    /**
+     * get sum by value * location
+     * @param A
+     * @return
+     */
     private int sum(int[] A){
         int sum=0;
         for(int i=0;i<A.length;i++){

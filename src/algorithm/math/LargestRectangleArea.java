@@ -9,7 +9,7 @@ public class LargestRectangleArea {
 
     public static void main(String[] argv){
         LargestRectangleArea largestRectangleArea=new LargestRectangleArea();
-        int[] heights={2,1,2};
+        int[] heights={3,5,2};
         System.out.print(largestRectangleArea.largestRectangleArea(heights));
     }
 
@@ -19,9 +19,10 @@ public class LargestRectangleArea {
      * 3. otherwise, calculate the size using the stored min index to calculate
      * a. if no more index , use the min * index to array start
      * b. other wise, use the min * index to previous smaller index
-     * 4. if more index left, using from end to its previous min index as the length,
-     * 5. if no more index, this is the minimal height, use the the full length
-     * 6. in step 3456, update the maxsize
+     * 4. then compare with the next one in stack and repeat step 3
+     * 5. if more index left, using from end to its previous min index as the lengt
+     * 6. if no more index, this is the minimal height, use the the full length
+     * 7. in step 3456, update the maxsize
      * O(n)
      * @param heights
      * @return

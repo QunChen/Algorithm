@@ -19,6 +19,15 @@ public class FindAllAnagramsInString {
         System.out.println(findAllAnagramsInString.findAnagrams(s2,p2));
     }
 
+    /**
+     * create an array as a map for number of each character
+     * create a window of same size of target
+     * check anagram and reset target map
+     * O(s.length*p.length)
+     * @param s
+     * @param p
+     * @return
+     */
     public List<Integer> findAnagrams(String s, String p) {
         int[] map=new int[26];
         for(char c:p.toCharArray()){
@@ -44,6 +53,13 @@ public class FindAllAnagramsInString {
         return result;
     }
 
+    /**
+     * if number of each character is equal
+     * O(n)
+     * @param query
+     * @param map
+     * @return
+     */
     private boolean isAnagram(char[] query, int[] map){
         for(int i:query){
             if(map[i-'a']==0){

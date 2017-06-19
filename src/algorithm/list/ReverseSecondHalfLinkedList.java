@@ -30,7 +30,7 @@ public class ReverseSecondHalfLinkedList {
     }
 
     /**
-     * user fast and slow to find middle, if the number is odd, move both 1 advance
+     * use fast and slow to find middle, if the number is odd, move both 1 advance
      * store slow as connect to reversed list
      * make slow.next to null
      * then store pre, curr and next

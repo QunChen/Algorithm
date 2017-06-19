@@ -12,7 +12,8 @@ public class divideTwoIntegers {
     /**
      * 1. considering the sign of 2 numbers
      * 2. get abosulte value of two opedends
-     *
+     * 3. handle over bound issue
+     * 4. return the value with right sign
      * @param dividend
      * @param divisor
      * @return

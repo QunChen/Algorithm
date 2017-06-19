@@ -14,6 +14,13 @@ public class GrayCode {
         System.out.print(grayCode.grayCode(2));
     }
 
+    /**
+     * for a number get all combination less that it bit size, like 2  less than 100 (4)
+     * for each number xor with half of itself,add to result
+     * O(2^n)
+     * @param n
+     * @return
+     */
     public List<Integer> grayCode(int n) {
         List<Integer> result = new LinkedList<>();
         for (int i = 0; i < 1<<n; i++){

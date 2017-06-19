@@ -13,6 +13,16 @@ public class ThirdMaximumNumber {
         System.out.println(thirdMaximumNumber.thirdMax(nums));
     }
 
+    /**
+     * create a minheap
+     * add unique number to min heap
+     * if the size is over 3, poll the smallest one
+     * return the first element in min heap, which is the the third largest
+     * T:O(n)
+     * S:O(1)
+     * @param nums
+     * @return
+     */
     public int thirdMax(int[] nums) {
         if(nums==null||nums.length==0){
             return -1;

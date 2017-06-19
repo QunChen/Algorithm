@@ -11,6 +11,13 @@ public class SingleNumber {
         System.out.print(singleNumber.singleNumber(nums));
     }
 
+    /**
+     * a number xor itself will be 0
+     * so keep xor numbers and only the single one will be left
+     * O(n)
+     * @param nums
+     * @return
+     */
     public int singleNumber(int[] nums) {
         int sum=0;
         for(int i:nums){

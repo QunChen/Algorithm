@@ -52,8 +52,8 @@ public class IntegerToEnglishWord {
     /**
      * 1. return empty string if it is 0
      * 2. map to special word if less than 20
-     * 3. map to tens level and special word if less than 100
-     * 4. map to hundred level apply less than 100 part recursively
+     * 3. map to tens level and special word if larger than 20 but less than 100
+     * 4. get the number of hundred by mapping to hundred level apply less than 100 part recursively
      * O(1)
      * @param num
      * @return

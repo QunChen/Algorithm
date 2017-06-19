@@ -16,7 +16,7 @@ public class FindHeavierBall {
      * heavier ball must in this group, then call itself recursively using the updated index
      * 3. if all three groups are same, the the heavier one is in the remind 1 or 2 balls
      * 4. if only 1 left, that is the largest one， if 2 left, compare and return
-     * O((lg3)n)
+     * O((log3)n)
      * @param nums
      * @param start
      * @param end

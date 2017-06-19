@@ -6,6 +6,16 @@ import dataStructures.LinkedList.ListNode;
  * Created by qun.chen on 10/6/17.
  */
 public class AddTwoNumbers {
+    /**
+     * add the first node for 2 linked list and carry
+     * set the value for new linked list and update the query if over 9
+     * for the left ones, add the value with carry
+     * if the carry is still there when no more nodes, create a new node as 1
+     * O(l1.length+l2.length)
+     * @param l1
+     * @param l2
+     * @return
+     */
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         if(l1==null&&l2==null){
             return null;

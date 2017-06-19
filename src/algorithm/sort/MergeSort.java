@@ -21,7 +21,7 @@ public class MergeSort {
     }
 
     /**
-     * 1. split the list half, and recursively sort each half. when the head over tail
+     * 1. split the list half, and recursively split each half. when the head over tail
      * return.
      * 2. merge the result from 2 smallest split list
      * O(nlgn)

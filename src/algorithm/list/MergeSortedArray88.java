@@ -15,6 +15,16 @@ public class MergeSortedArray88 {
         System.out.print(Arrays.toString(nums1));
     }
 
+    /**
+     * merge by comparing the first unmerged element in the two arrays
+     * increase index of merged array in the last step
+     * append remainder from one array
+     * O(m+n)
+     * @param nums1
+     * @param m
+     * @param nums2
+     * @param n
+     */
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         int[] result=new int[m+n];
         int index1=0;

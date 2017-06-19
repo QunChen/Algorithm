@@ -56,6 +56,7 @@ public class ReverseLinkedList {
 
     /**
      * first make node point to the prev, then more to next using recursion
+     * O(n)
      * @param node
      * @param parent
      * @return

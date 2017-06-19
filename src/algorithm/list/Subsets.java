@@ -14,6 +14,11 @@ public class Subsets {
         System.out.print(subsets.subsets(nums));
     }
 
+    /**
+     * initial the result and temp, add empty as the first result
+     * @param nums
+     * @return
+     */
     public List<List<Integer>> subsets(int[] nums) {
         if(nums==null||nums.length==0){
             return new ArrayList<>();
@@ -28,6 +33,18 @@ public class Subsets {
         return result;
     }
 
+    /**
+     * use the temp to add the current number
+     * add the temp to result
+     * recursively add next number
+     * when it reach the size of nums, return
+     * then backtracking by update temp
+     * O(2^n)
+     * @param nums
+     * @param start
+     * @param result
+     * @param temp
+     */
     private void subsets(int[] nums,int start,List<List<Integer>> result,List<Integer> temp){
         for(int i=start;i<nums.length;i++){
             temp.add(nums[i]);

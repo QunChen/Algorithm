@@ -11,10 +11,19 @@ public class TwoSum {
 
     public static void main(String[] argv){
         TwoSum twoSum=new TwoSum();
-        int[] nums={2, 7, 11, 15};
-        System.out.print(Arrays.toString(twoSum.twoSum(nums,9)));
+        int[] nums={2, 7, 10, 15};
+        System.out.print(Arrays.toString(twoSum.twoSum(nums,17)));
     }
 
+    /**
+     * create a hash map,
+     * if not contain the compliment, add
+     * otherwise, return indexes
+     * O(n)
+     * @param nums
+     * @param target
+     * @return
+     */
     public int[] twoSum(int[] nums, int target) {
         if(nums==null||nums.length==0){
             return new int[0];

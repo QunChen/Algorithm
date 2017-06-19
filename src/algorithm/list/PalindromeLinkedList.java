@@ -21,6 +21,14 @@ public class PalindromeLinkedList {
         System.out.println(palindromeLinkedList.isPalindrome(root));
     }
 
+    /**
+     * use slow and fast pointer to find the middle element
+     * reverse the later half, if the size is odd, advance slow pointer
+     * then compare early half and later half
+     * O(n)
+     * @param head
+     * @return
+     */
     public boolean isPalindrome(ListNode head) {
         if(head==null||head.next==null){
             return false;
@@ -48,6 +56,15 @@ public class PalindromeLinkedList {
         }
     }
 
+    /**
+     * when reach upbound,reverse next pointer
+     * recursively to next node, keep pre and current
+     * for stack call, when return, reverse next pointer
+     * O(n)
+     * @param prev
+     * @param node
+     * @param upbound
+     */
     private void reverse(ListNode prev,ListNode node,ListNode upbound){
         if(node.val==upbound.val){
             node.next=prev;
@@ -57,6 +74,14 @@ public class PalindromeLinkedList {
         node.next=prev;
     }
 
+    /**
+     * compare each node and advance
+     * if any node has next, is not same
+     * O(n)
+     * @param node1
+     * @param node2
+     * @return
+     */
     private boolean isSame(ListNode node1,ListNode node2){
         if(node1==null||node2==null){
             return false;

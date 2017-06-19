@@ -5,6 +5,16 @@ package algorithm.list;
  */
 public class SetMatrixZeroes {
 
+    /**
+     * use the first row and col to remember which row and col should be 0.
+     * also check whether the first the row and col has any 0
+     * look all cells, if found 0, make the first element of its row and col to 0
+     * look first row and col, if is 0, make the whole row and col 0.
+     * if the first row and col has zero initially, make them all 0.
+     * Time:O(mn)
+     * Space:O(1)
+     * @param matrix
+     */
     public void setZeroes(int[][] matrix) {
         if(matrix==null){
             return;

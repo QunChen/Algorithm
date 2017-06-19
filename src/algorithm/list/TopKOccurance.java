@@ -16,7 +16,7 @@ public class TopKOccurance {
 
     /**
      * 1. create a map from string to number of occurrence
-     * 2. create a max heap by value in the map in step 1
+     * 2. create a max heap by value in the map in step 1 in descending order
      * 3. add all strings to map
      * 4. add all strings to heap
      * 5. poll until k

@@ -16,6 +16,15 @@ public class MergeTwoSortedLists {
         mergeTwoSortedLists.mergeTwoLists(l1,l2);
     }
 
+    /**
+     * create dummy head and tail node
+     * advance tail and one of the linked list node
+     * append left over
+     * O(l1 size+l2 size)
+     * @param l1
+     * @param l2
+     * @return
+     */
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode dummy=new ListNode(0);
         ListNode tail=dummy;

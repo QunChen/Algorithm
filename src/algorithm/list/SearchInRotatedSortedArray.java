@@ -11,6 +11,15 @@ public class SearchInRotatedSortedArray {
         System.out.print(searchInRotatedSortedArray.search(nums,2));
     }
 
+    /**
+     * 1. find the mid, if eqauls, then found
+     * 2. if left is in order, if the number in the left half range, search left half, otherwise search right half
+     * 3. if right is in order, if the number in the right half range, search right half, otherwise search left half
+     * O(logn)
+     * @param nums
+     * @param target
+     * @return
+     */
     public int search(int[] nums, int target) {
         if(nums==null||nums.length==0){
             return -1;

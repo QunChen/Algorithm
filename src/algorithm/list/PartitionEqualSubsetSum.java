@@ -11,11 +11,20 @@ import java.util.Set;
 public class PartitionEqualSubsetSum {
 
     public static void main(String[] argv){
-        int[] nums={1,2,5};
+        int[] nums={1,2,3,6};
         PartitionEqualSubsetSum partitionEqualSubsetSum=new PartitionEqualSubsetSum();
         System.out.println(partitionEqualSubsetSum.canPartition(nums));
     }
 
+    /**
+     * 1. half the sum, if the sum is odd, it is no possible to split to 2 equal subset
+     * 2. create a memory to whether is can be added, make the first to true
+     * 3. collect all the true case
+     * 4. for all the true cases, make the next one true, the location will be added the current value
+     * 4. if the location is the sum, which it means  also reach the last in memory, so is found
+     * @param nums
+     * @return
+     */
     public boolean canPartition(int[] nums) {
         if(nums==null||nums.length==0){
             return false;

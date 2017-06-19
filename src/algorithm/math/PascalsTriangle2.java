@@ -13,6 +13,13 @@ public class PascalsTriangle2 {
         System.out.print(pascalsTriangle2.getRow(3));
     }
 
+    /**
+     * for each row the first and last element is 1.
+     * for mid items, number is 1 less than top level, the value is the sum of previous 2
+     * O(total elements)
+     * @param rowIndex
+     * @return
+     */
     public List<Integer> getRow(int rowIndex) {
         List<Integer> current=new ArrayList<>();
         List<Integer> previous=new ArrayList<>();

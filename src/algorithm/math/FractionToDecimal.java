@@ -12,7 +12,7 @@ public class FractionToDecimal {
         FractionToDecimal fractionToDecimal=new FractionToDecimal();
         System.out.println(fractionToDecimal.fractionToDecimal(-1,-2147483648));
 //       System.out.println(fractionToDecimal.fractionToDecimal(2,1));
-//        System.out.println(fractionToDecimal.fractionToDecimal(11,6));
+        System.out.println(fractionToDecimal.fractionToDecimal(11,6));
     }
 
     /**

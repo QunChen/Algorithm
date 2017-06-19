@@ -37,7 +37,7 @@ public class TopKthAverage {
      * 2. create a map from id to average
      * 3. add all to map in step 1
      * 4. add result to map in step 2
-     * O(n^2)
+     * O(nlogn)
      * @param data
      * @param k
      * @return

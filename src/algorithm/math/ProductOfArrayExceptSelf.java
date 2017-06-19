@@ -12,6 +12,15 @@ public class ProductOfArrayExceptSelf {
         System.out.print(Arrays.toString(productOfArrayExceptSelf.productExceptSelf(nums)));
     }
 
+    /**
+     * create 2 array pre and post the size is larger than 1
+     * to store product except the first and last element and make the first and last is 1
+     * so for i, pre is the product before i, i+1 for post is product after i
+     * then times two of them
+     * O(n)
+     * @param nums
+     * @return
+     */
     public int[] productExceptSelf(int[] nums) {
         if (nums == null || nums.length == 0) {
             return null;

@@ -41,6 +41,10 @@ public class Twitter {
         timeline=0;
     }
 
+    /**
+     * as a linked list node for the next tweet
+     * increase timeline
+     */
     public class Tweet {
         private int id;
         public Tweet next;
@@ -52,8 +56,10 @@ public class Twitter {
         }
     }
 
-    ;
 
+    /**
+     * a user has a latest tweet as the head node and a set of following users
+     */
     public class User {
         private int id;
         public Tweet headTweet;
@@ -65,6 +71,11 @@ public class Twitter {
             follow(this);
         }
 
+        /**
+         * make the tweet at the head
+         * O(1)
+         * @param tweet
+         */
         public void postTweet(Tweet tweet) {
             tweet.next = headTweet;
             headTweet = tweet;
@@ -84,6 +95,11 @@ public class Twitter {
 
     /**
      * Compose a new tweet.
+     * increase timeline
+     * create new tweet with id and time
+     * add new user if null and add to map
+     * user post tweet
+     * O(1)
      */
     public void postTweet(int userId, int tweetId) {
         timeline++;
@@ -97,7 +113,14 @@ public class Twitter {
     }
 
     /**
-     * Retrieve the 10 most recent tweet ids in the user's news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent.
+     * Retrieve the 10 most recent tweet ids in the user's news feed.
+     * Each item in the news feed must be posted by users who the user followed or by the user herself.
+     * Tweets must be ordered from most recent to least recent.
+     *
+     * create a queue put newest tweet in front
+     * from each following user, retrieve 10 latest news and add to the queue
+     * return global 10 latest news
+     * O(number of followers)
      */
     public List<Integer> getNewsFeed(int userId) {
         timeline++;
@@ -137,6 +160,10 @@ public class Twitter {
 
     /**
      * Follower follows a followee. If the operation is invalid, it should be a no-op.
+     * increase time
+     * if any user not exists, create and add to map
+     * add followee
+     * O(1)
      */
     public void follow(int followerId, int followeeId) {
         timeline++;
@@ -159,6 +186,7 @@ public class Twitter {
 
     /**
      * Follower unfollows a followee. If the operation is invalid, it should be a no-op.
+     * remove from set
      */
     public void unfollow(int followerId, int followeeId) {
         timeline++;
